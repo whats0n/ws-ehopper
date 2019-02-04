@@ -1,0 +1,31 @@
+.btn
+	display: inline-block
+	vertical-align: top
+	padding: 15px 15px
+	margin: 0
+	border: none
+	min-width: 40px
+	color: $darkGray
+	background: $lightGray
+	font-weight: inherit
+	font-size: 16px
+	line-height: 20px
+	font-weight: 500
+	text-align: center
+	text-decoration: none
+	white-space: nowrap
+	cursor: pointer
+	user-select: none
+	transition: background 0.175s ease, box-shadow 0.175s ease
+	+active
+		color: $darkGray
+		background: darken($lightGray, 10%)
+		box-shadow: inset 2px 2px 6px rgba($black, 0.2)
+	&_primary
+		color: $white
+		background: $blue
+		+active
+			color: $white
+			background: darken($blue, 10%)
+	&_wide
+		width: 100%

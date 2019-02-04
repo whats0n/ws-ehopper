@@ -1,0 +1,59 @@
+html,
+body
+	height: 100%
+	overflow: hidden
+	+md 
+		overflow: auto
+body
+	min-width: 320px
+	min-height: 570px
+	color: $darkGray
+	background: $alabaster
+	font-family: 'Roboto', Arial, sans-serif
+	font-size: 14px
+	font-weight: 300
+	line-height: 1.2
+
+.app
+	position: relative
+	display: flex
+	flex-direction: column
+	overflow: auto
+	height: 100vh
+	+md
+		height: auto
+		overflow: visible
+
+.main
+	display: flex
+	height: calc(100vh - 50px)
+	+md 
+		display: block
+		height: auto
+
+.sidebar
+	width: 40%
+	height: 100%
+	+md
+		width: 100%
+		height: auto
+
+.sidebar ~ .container
+	width: 60%
+	+md 
+		width: 100%
+
+.container
+	overflow: auto
+	height: 100%
+	+md
+		height: auto
+
+.section
+	padding: 40px 20px
+
+.text-right
+	text-align: right
+
+.text-uppercase
+	text-transform: uppercase

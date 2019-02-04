@@ -1,0 +1,58 @@
+{% macro static(props) %}
+<!-- begin sidebar -->
+<div class="sidebar">
+	<div class="sidebar__header">
+		<div class="sidebar__header-row">
+			{% for item in props.header %}
+				<div class="sidebar__header-col">{{item | safe}}</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="sidebar__body">
+		<div class="sidebar__items">
+			{% for item in props.items %}
+				<div class="sidebar-item sidebar__item">
+					<div class="sidebar-item__row">
+						<div class="sidebar-item__col">
+							<div class="sidebar-item__value">{{item.title | safe}}</div>
+							{% if item.description %}
+								<div class="sidebar-item__sub">{{item.description | safe}}</div>
+							{% endif %}
+						</div>
+						<div class="sidebar-item__col">
+							<div class="sidebar-item__row">
+								<div class="sidebar-item__col">
+									<div class="sidebar-item__value">{{item.qty | safe}}</div>
+									<div class="sidebar-item__sub">{{item.price | safe}}</div>
+								</div>
+								<div class="sidebar-item__col text-right">
+									<div class="sidebar-item__value">{{item.totalPrice | safe}}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="sidebar__footer">
+		<div class="sidebar__total">
+			<div class="sidebar__total-list">
+				{% for item in props.footer.items %}
+					<div class="sidebar__total-item">
+						<div class="sidebar__total-label">{{item.label | safe}}</div>
+						<div class="sidebar__total-value">{{item.value | safe}}</div>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="sidebar__total-list">
+				<div class="sidebar__total-item">
+					<div class="sidebar__total-label">Total</div>
+					<div class="sidebar__total-value">{{footer.total.value | safe}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end sidebar -->
+{% endmacro %}

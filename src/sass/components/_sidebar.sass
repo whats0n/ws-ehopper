@@ -1,0 +1,76 @@
+.sidebar
+	position: relative
+	z-index: 1
+	display: flex
+	flex-direction: column
+	background: $white
+	box-shadow: -3px 5px 4px 5px rgba($black, 0.2)
+	word-break: break-word
+	+md
+		box-shadow: none
+	&__header,
+	&__footer
+		flex: 0 0 auto
+	&__header
+		overflow: hidden
+		&-row
+			border-bottom: 1px solid rgba($black, 0.1)
+			+clr
+		&-col
+			float: left
+			padding: 15px 20px
+			width: 50%
+			font-size: 16px
+			&:not(:last-child)
+				border-right: 1px solid rgba($black, 0.1)
+	&__footer
+		padding: 15px 0
+		border-top: 1px solid rgba($black, 0.1)
+		background: #d2edf6
+	&__total
+		color: $darkGray
+		font-size: 14px
+		line-height: 16px
+		&-list
+			&:not(:first-child)
+				border-top: 1px solid rgba(#92d4e9, 0.3)
+		&-item
+			+clr
+			&:not(:first-child)
+				border-top: 1px dashed rgba(#92d4e9, 0.3)
+		&-label,
+		&-value
+			float: left
+			padding: 3px 20px
+			width: 50%
+			+text-overflow
+		&-value
+			text-align: right
+	&__body
+		overflow: auto
+		flex: 1 1 auto
+	&__item
+		border-bottom: 1px solid rgba($black, 0.1)
+
+.sidebar-item
+	overflow: hidden
+	padding: 10px 15px
+	&__row
+		margin: 0 -5px
+		+clr
+	&__col
+		float: left
+		padding: 5px
+		width: 50%
+		.sidebar-item__col
+			padding-top: 0
+			padding-bottom: 0
+	&__value,
+	&__sub
+		padding: 3px 0
+		font-size: 14px
+		line-height: 16px
+		+xs
+			font-size: 13px
+	&__sub
+		color: #ababab
