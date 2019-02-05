@@ -7,26 +7,28 @@ headerTitle: 'Discount approval request'
 {% block content %}
 	
 	{{sidebar.static({
-		header: [ 'Walk-In' ],
+		header: [ 'Requested by: Simon Carter', 'Customer: John Doe' ],
 		items: [
 			{
 				title: '7 32GB SVR',
 				description: 'SN: 0722222222224426',
 				qty: '1x',
 				price: '$100.0',
-				totalPrice: '$100.00'
+				totalPrice: '$100.00',
+				discount: '($10.00)'
 			},
 			{
 				title: 'Service Payment',
 				qty: '1x',
 				price: '$128.00',
-				totalPrice: '$128.00'
+				totalPrice: '$128.00',
+				discount: '($10.00)'
 			}
 		],
 		footer: {
 			items: [
 				{ label: 'Subtotal', value: '$228.00' },
-				{ label: 'Discount', value: '$10.00' },
+				{ label: 'Discount', value: '$10.00', discount: true },
 				{ label: 'Sales Tax', value: '$10.00' }
 			],
 			total: '$228.00'

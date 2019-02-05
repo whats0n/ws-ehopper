@@ -18,11 +18,16 @@
 			+clr
 		&-col
 			float: left
-			padding: 15px 20px
+			padding: 15px 25px
 			width: 50%
 			font-size: 16px
+			+xs
+				width: 100%
 			&:not(:last-child)
 				border-right: 1px solid rgba($black, 0.1)
+				+xs
+					border-bottom: 1px solid rgba($black, 0.1)
+					border-right: 0
 	&__footer
 		padding: 15px 0
 		border-top: 1px solid rgba($black, 0.1)
@@ -40,8 +45,9 @@
 				border-top: 1px dashed rgba(#92d4e9, 0.3)
 		&-label,
 		&-value
+			position: relative
 			float: left
-			padding: 3px 20px
+			padding: 3px 25px
 			width: 50%
 			+text-overflow
 		&-value
@@ -51,10 +57,17 @@
 		flex: 1 1 auto
 	&__item
 		border-bottom: 1px solid rgba($black, 0.1)
+	&__discount-icon
+		position: absolute
+		top: 50%
+		right: 0
+		margin: -8px 5px 0 0
+		width: 16px
+		fill: currentColor
 
 .sidebar-item
 	overflow: hidden
-	padding: 10px 15px
+	padding: 10px 25px
 	&__row
 		margin: 0 -5px
 		+clr
@@ -67,6 +80,7 @@
 			padding-bottom: 0
 	&__value,
 	&__sub
+		position: relative
 		padding: 3px 0
 		font-size: 14px
 		line-height: 16px
@@ -74,3 +88,10 @@
 			font-size: 13px
 	&__sub
 		color: #ababab
+	&__discount-icon
+		position: absolute
+		top: 50%
+		left: 100%
+		margin: -8px 0 0 3px
+		width: 16px
+		fill: currentColor
