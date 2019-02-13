@@ -1,0 +1,56 @@
+---
+title: 'Approval Request'
+headerTitle: 'Discount approval request'
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	
+	{{sidebar.static({
+		discount: true,
+		header: [ 'Requested by: Simon Carter', 'Customer: John Doe' ],
+		items: [
+			{
+				title: '7 32GB SVR',
+				description: 'SN: 0722222222224426',
+				qty: '1x',
+				price: '$100.0',
+				totalPrice: '$100.00'
+			},
+			{
+				title: 'Service Payment',
+				qty: '1x',
+				price: '$128.00',
+				totalPrice: '$128.00'
+			}
+		],
+		footer: {
+			items: [
+				{ label: 'Subtotal', value: '$228.00' },
+				{ label: 'Discount', value: '$10.00', discount: true },
+				{ label: 'Sales Tax', value: '$10.00' }
+			],
+			total: '$228.00'
+		}
+	})}}
+	
+	<div class="container">
+		<div class="section">
+			<div class="grid">
+				<div class="grid__row">
+					{% for item in [
+						{ value: '10', label: 'Coupon 1' },
+						{ value: '20', label: 'Coupon 2' },
+						{ value: '30', label: 'Coupon 3' },
+						{ value: '40', label: 'Coupon 4' }
+					] %}
+						<div class="grid__col">
+							<div class="discount-card js-discount-coupon" data-discount-label="{{item.label}}" data-discount-value="{{item.value}}">{{item.label}}: ${{item.value}}</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

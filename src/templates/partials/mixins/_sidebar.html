@@ -10,8 +10,12 @@
 	</div>
 	<div class="sidebar__body">
 		<div class="sidebar__items">
+			{% if props.discount %}
+				{% set discountProduct = 'js-discount-item' %}
+				{% set discountValue = 'js-discount-value' %}
+			{% endif %}
 			{% for item in props.items %}
-				<div class="sidebar-item sidebar__item">
+				<div class="sidebar-item sidebar__item {{discountProduct}}">
 					<div class="sidebar-item__row">
 						<div class="sidebar-item__col">
 							<div class="sidebar-item__value">{{item.title | safe}}</div>
@@ -27,8 +31,11 @@
 								</div>
 								<div class="sidebar-item__col text-right">
 									<div class="sidebar-item__value">{{item.totalPrice | safe}}</div>
-									<div class="sidebar-item__sub">
-										<strong>{{item.discount | safe}}</strong>
+									{% if not item.discount %}
+										{% set hidden = 'is-hidden' %}
+									{% endif %}
+									<div class="sidebar-item__sub {{hidden}}">
+										<strong class="{{discountValue}}">{{item.discount | safe}}</strong>
 										<svg viewBox="0 0 512 512" class="sidebar-item__discount-icon">
 											<circle cx="256" cy="378.5" r="25"/>
 											<path d="M256,0C114.516,0,0,114.497,0,256c0,141.484,114.497,256,256,256c141.484,0,256-114.497,256-256C512,114.516,397.503,0,256,0zM256,472c-119.377,0-216-96.607-216-216c0-119.377,96.607-216,216-216c119.377,0,216,96.607,216,216C472,375.377,375.393,472,256,472z"/>

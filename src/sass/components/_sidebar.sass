@@ -68,6 +68,8 @@
 .sidebar-item
 	overflow: hidden
 	padding: 10px 25px
+	&.is-highlight
+		background: #eee
 	&__row
 		margin: 0 -5px
 		+clr
@@ -86,6 +88,8 @@
 		line-height: 16px
 		+xs
 			font-size: 13px
+		&.is-hidden
+			display: none
 	&__sub
 		color: #ababab
 	&__discount-icon
