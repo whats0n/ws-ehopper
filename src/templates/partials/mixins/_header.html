@@ -1,0 +1,11 @@
+{% import "partials/mixins/_search.html" as search %}
+{% macro cart(props) %}
+<!-- begin header -->
+<header class="main-header {{props.classList}}">
+  {% include './header/_main-container.html' %}
+  {% include './header/_sync-search-for.html' %}
+  {% include './header/_sidebar.html' %}
+  {% include './header/_fullinfo.html' %}
+</header>
+<!-- end header -->
+{% endmacro %}

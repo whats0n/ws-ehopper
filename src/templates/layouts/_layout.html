@@ -16,7 +16,9 @@
 
     <!-- BEGIN content -->
     <div class="app" id="root">
-      {% include 'partials/_header.html' %}
+      {% if not disableHeader %}
+        {% include 'partials/_header.html' %}
+      {% endif %}
       <div class="main">
         {% block content %}{% endblock %}
       </div>

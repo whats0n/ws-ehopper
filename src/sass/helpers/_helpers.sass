@@ -20,8 +20,17 @@
 =gpu
   transform: translate3d(0,0,0)
 
+//vertical
+=xlg
+  +r(1280)
+    @content
+
+=lg
+  +r(1200)
+    @content
+
 =md
-  +r(980)
+  +r(1023)
     @content
 
 =sm
@@ -32,6 +41,14 @@
   +r(480)
     @content
 
-=active
-  &:active
+//horizontal
+$hlg: 720
+$hsm: 650
+$hxs: 570
+=hsm
+  +rh($hsm)
+    @content
+
+=hmlg
+  +rhmin($hlg)
     @content

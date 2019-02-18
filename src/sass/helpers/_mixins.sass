@@ -34,9 +34,20 @@
   text-overflow: ellipsis
   white-space: nowrap
 
+=touch
+  .is-touch &
+    @content
+
 =hover
   .no-touch &:hover
     @content
+
+=active
+  &:active
+    @content
+  .no-touch &
+    &:active
+      @content
 
 %pseudo
   position: relative
