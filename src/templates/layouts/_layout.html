@@ -1,5 +1,7 @@
 {% import "partials/_mixins.html" as mixins %}
 {% import "partials/mixins/_sidebar.html" as sidebar %}
+{% import "partials/mixins/_tabs.html" as tabs %}
+{% import "partials/mixins/_selectSimple.html" as selectSimple %}
 <!doctype html>
 <html>
   <head>
@@ -19,7 +21,7 @@
       {% if not disableHeader %}
         {% include 'partials/_header.html' %}
       {% endif %}
-      <div class="main">
+      <div class="main {{mainClass}}">
         {% block content %}{% endblock %}
       </div>
     </div>

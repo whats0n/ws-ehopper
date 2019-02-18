@@ -12,7 +12,7 @@
   <body>
     <!-- BEGIN content -->
     <div class="app" id="root">
-      <div class="main">
+      <div class="main main_cart">
         <div class="inner">
           <!-- begin header -->
           <header class="main-header ">
@@ -165,7 +165,8 @@
             <!-- end container for fullinfo on the shopping cart -->
           </header>
           <!-- end header -->
-          <aside class="sidebar sidebar_left sidebar_adaptive-poynt sidebar_disabled" data-toggle-class-container="sidebar-header" data-dropdown-parent="sidebar">
+          <!-- begin sidebar -->
+          <aside class="sidebar sidebar_cart sidebar_disabled" data-toggle-class-container="sidebar-header" data-dropdown-parent="sidebar">
             <div class="sidebar__body" data-order-scroll="order">
               <div class="sidebar__content">
                 <ul class="order-list" data-order-visible="order" data-order-list="order">
@@ -229,12 +230,6 @@
                     </div>
                   </li>
                 </ul>
-                <div class="order-empty is-hidden" data-order-empty="order">
-                  <div class="order-empty__center">
-                    <h5>Order is empty</h5>
-                    <p>Add items from catalog</p>
-                  </div>
-                </div>
               </div>
             </div>
             <div class="sidebar__footer">
@@ -268,20 +263,156 @@
                 <div class="toolbar__container">
                   <div class="toolbar__row">
                     <div class="toolbar__col toolbar__col_sm">
+                      <a href="#" class="btn btn_green btn_lg btn_wide toolbar__button" data-animation="ripple">All Payments</a>
                     </div>
                     <div class="toolbar__col toolbar__col_lg">
+                      <a href="#" class="btn btn_green btn_lg btn_wide toolbar__button" data-animation="ripple">Cash</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </aside>
+          <!-- end sidebar -->
           <div class="container container_right"></div>
           <div class="container container_overlay" data-fullinfo-container="fullinfo">
             <div class="container__body">
+              <!-- begin tabs -->
+              <div class="tabs tabs_lg container__content" data-tab="item-info">
+                <!-- begin tabs controls -->
+                <div class="tabs__controls">
+                  <ul class="tabs__list">
+                    <li class="tabs__item ">
+                      <a href="#" class="tabs__btn  is-active" data-tab-open="discount" data-tab-collection="item-info" data-animation="ripple">Discount</a>
+                    </li>
+                    <li class="tabs__item ">
+                      <a href="#" class="tabs__btn " data-tab-open="return-reason" data-tab-collection="item-info" data-animation="ripple">Return reason</a>
+                    </li>
+                    <li class="tabs__item ">
+                      <a href="#" class="tabs__btn " data-tab-open="placeholder-1" data-tab-collection="item-info" data-animation="ripple">Placeholder</a>
+                    </li>
+                    <li class="tabs__item ">
+                      <a href="#" class="tabs__btn " data-tab-open="placeholder-2" data-tab-collection="item-info" data-animation="ripple">Placeholder</a>
+                    </li>
+                    <li class="tabs__item ">
+                      <a href="#" class="tabs__btn " data-tab-open="placeholder-3" data-tab-collection="item-info" data-animation="ripple">Placeholder</a>
+                    </li>
+                    <li class="tabs__item ">
+                      <a href="#" class="tabs__btn " data-tab-open="placeholder-4" data-tab-collection="item-info" data-animation="ripple">Placeholder</a>
+                    </li>
+                    <li class="tabs__item ">
+                      <a href="#" class="tabs__btn " data-tab-open="placeholder-5" data-tab-collection="item-info" data-animation="ripple">Placeholder</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- end tabs controls -->
+                <!-- begin tabs container -->
+                <div class="tabs__container">
+                  <div class="tabs__content  is-open" data-tab-container="discount" data-tab-collection="item-info" data-scrollbar="default">
+                    <div class="section">
+                      <div class="sm-grid__body">
+                        <div class="sm-grid__row sm-grid__row_steps">
+                          <div class="sm-grid__col sm-grid__col_auto">
+                            <i class="icon icon-next sm-grid__icon"></i>
+                            <div class="simple-card simple-card_simplest">
+                              <span class="simple-card__content" data-animation="ripple">
+                                <span class="simple-card__title">Set discount</span>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="sm-grid__col sm-grid__col_auto">
+                            <i class="icon icon-next sm-grid__icon"></i>
+                            <div class="simple-card simple-card_simplest">
+                              <span class="simple-card__content" data-animation="ripple">
+                                <span class="simple-card__title">Select manager</span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sm-grid__row sm-grid__row_last">
+                          <div class="form form_sm">
+                            <div class="form__section">
+                              <label class="form-label"> Select manager to approve: </label>
+                              <div class="select-box  ">
+                                <select>
+                                  <option value="John Doe">John Doe</option>
+                                  <option value="John Doe1">John Doe1</option>
+                                  <option value="John Doe2">John Doe2</option>
+                                  <option value="John Doe3">John Doe3</option>
+                                  <option value="John Doe4">John Doe4</option>
+                                  <option value="John Doe5">John Doe5</option>
+                                  <option value="John Doe6">John Doe6</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form__section">
+                              <div class="form-label">15% product discount</div>
+                              <div class="fieldset fieldset_bordered">
+                                <textarea class="textarea " placeholder="Enter comments"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tabs__content " data-tab-container="return-reason" data-tab-collection="item-info" data-scrollbar="default">
+                    <div class="section">
+                      <div class="sm-grid__body">
+                        <div class="sm-grid__row">
+                          <div class="form form_sm">
+                            <div class="form__section">
+                              <ul class="form__list">
+                                <li class="form__list-item">
+                                  <label class="radio">
+                                    <input type="radio" name="">
+                                    <span class="radio__icon"></span>
+                                    <span class="radio__text">Customer satisfaction</span>
+                                  </label>
+                                </li>
+                                <li class="form__list-item">
+                                  <label class="radio">
+                                    <input type="radio" name="">
+                                    <span class="radio__icon"></span>
+                                    <span class="radio__text">MetroPromise</span>
+                                  </label>
+                                </li>
+                                <li class="form__list-item">
+                                  <label class="radio">
+                                    <input type="radio" name="">
+                                    <span class="radio__icon"></span>
+                                    <span class="radio__text">Damaged</span>
+                                  </label>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tabs__content " data-tab-container="placeholder-1" data-tab-collection="item-info" data-scrollbar="default">
+                    <div class="section"> Placeholder </div>
+                  </div>
+                  <div class="tabs__content " data-tab-container="placeholder-2" data-tab-collection="item-info" data-scrollbar="default">
+                    <div class="section"> Placeholder </div>
+                  </div>
+                  <div class="tabs__content " data-tab-container="placeholder-3" data-tab-collection="item-info" data-scrollbar="default">
+                    <div class="section"> Placeholder </div>
+                  </div>
+                  <div class="tabs__content " data-tab-container="placeholder-4" data-tab-collection="item-info" data-scrollbar="default">
+                    <div class="section"> Placeholder </div>
+                  </div>
+                  <div class="tabs__content " data-tab-container="placeholder-5" data-tab-collection="item-info" data-scrollbar="default">
+                    <div class="section"> Placeholder </div>
+                  </div>
+                </div>
+                <!-- end tabs container -->
+              </div>
+              <!-- end tabs -->
               <div class="container__submit">
                 <div class="form form_sm">
-                  <button class="btn btn_lg btn_blue btn_block text-uppercase" data-animation="ripple" value="Done">Send Request</button>
+                  <button class="btn btn_lg btn_primary btn_wide text-uppercase" data-animation="ripple" value="Done">Send Request</button>
                 </div>
               </div>
             </div>

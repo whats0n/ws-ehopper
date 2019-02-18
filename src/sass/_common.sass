@@ -30,6 +30,16 @@ body
 	+md 
 		display: block
 		height: auto
+	&_cart
+		padding-top: 50px
+		height: 100vh
+
+.inner
+	display: flex
+	height: 100%
+	+md 
+		display: block
+		height: auto
 
 .sidebar
 	width: 40%
@@ -48,6 +58,30 @@ body
 	height: 100%
 	+md
 		height: auto
+	&_overlay
+		position: absolute
+		z-index: 5
+		top: 0
+		right: 0
+		bottom: 0
+		width: 60%
+		background: $alabaster
+		box-shadow: -3px 0 4px 5px rgba(0, 0, 0, 0.2)
+		transform: translate3d(-110%,0,0)
+		transition: transform 0.3s ease-in-out
+		&.is-open
+			+gpu
+		.container
+			&__body
+				padding-top: 50px
+				padding-bottom: 100px
+				height: 100%
+			&__submit
+				position: absolute
+				bottom: 0
+				left: 0
+				right: 0
+				padding: 0 20px 20px
 
 .section
 	padding: 40px 20px

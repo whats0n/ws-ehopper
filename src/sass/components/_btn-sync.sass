@@ -1,0 +1,35 @@
+.btn-sync
+	display: inline-block
+	vertical-align: top
+	color: $white
+	background: none
+	font-size: 16px
+	font-weight: 300
+	transition: background 0.175s ease, box-shadow 0.175s ease
+	cursor: pointer
+	+active
+		color: $white
+		background: rgba($black, 0.1)
+		box-shadow: inset 2px 2px 6px rgba($black, 0.2)
+	&__icon,
+	&__title
+		display: inline-block
+		vertical-align: top
+	&__icon
+		width: 50px
+		height: 50px
+		line-height: 50px
+		animation: sync 2.25s ease-in-out infinite
+	&__title
+		padding-left: 20px
+		line-height: 50px
+
+@keyframes sync
+	0%
+		transform: rotate(0deg)
+	30%
+		transform: rotate(-360deg)
+	30%
+		transform: rotate(0)
+	100%
+		transform: rotate(-360deg)

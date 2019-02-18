@@ -1,0 +1,22 @@
+{% import "partials/_mixins.html" as mixins %}
+<div class="section">
+	<div class="sm-grid__body">
+		<div class="sm-grid__row">
+			<div class="form form_sm">
+				<div class="form__section">
+					<ul class="form__list">
+						{% for item in [
+							{ text: 'Customer satisfaction' },
+							{ text: 'MetroPromise' },
+							{ text: 'Damaged' }
+						] %}
+							<li class="form__list-item">
+								{{mixins.radio(item)}}
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

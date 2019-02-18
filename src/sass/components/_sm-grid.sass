@@ -1,0 +1,101 @@
+.sm-grid
+	position: relative
+	padding-bottom: 70px
+	height: 100%
+	&_full
+		padding-bottom: 0
+	&_space-md
+		.sm-grid
+			&__row
+				margin: 0 -10px
+			&__col
+				padding: 10px
+	&_tabs 
+		.sm-grid
+			&__body
+				display: none
+				height: auto
+				&.is-open
+					display: block
+	&__body
+		overflow: auto
+		padding: 5px 20px 10px
+		height: 100%
+	&__footer
+		position: absolute
+		left: 0
+		right: 0
+		bottom: 0
+	&__row
+		margin: 0 -5px
+		font-size: 0
+		+clr
+		&_steps
+			.sm-grid__col
+				padding-right: 15px
+		&_last
+			margin-top: 30px
+	&__col
+		position: relative
+		display: inline-block
+		vertical-align: top
+		padding: 5px
+		width: 100%
+		&_xl
+			width: 75%
+		&_lg
+			width: 66.66%
+		&_md
+			width: 50%
+		&_sm
+			width: 33.33%
+		&_xs
+			width: 25%
+		&:last-child
+			.sm-grid__icon
+				display: none
+		&_auto
+			width: 220px
+	&__title
+		margin: 5px 0 0
+	&__footer
+		text-align: center
+	&__btn
+		margin: 0 auto
+		max-width: 300px
+		text-transform: uppercase
+	&__icon
+		position: absolute
+		z-index: 1
+		top: 50%
+		right: -10px
+		margin-top: -15px
+		border: 1px solid $white
+		border-radius: 50%
+		width: 30px
+		height: 30px
+		background: $lightGray
+		line-height: 30px
+	p
+		padding: 0 5px
+		font-size: 14px
+	&__tabs
+		padding: 0 10px
+		font-size: 0
+		li
+			display: inline-block
+			vertical-align: top
+			padding: 10px
+		.btn
+			min-width: 120px
+
+	&__field
+		float: left
+		width: 60%
+		max-width: 500px
+		+ .sm-grid__button
+			padding-left: 20px
+	&__button
+		float: left
+		.btn
+			min-width: 140px

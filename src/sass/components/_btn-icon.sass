@@ -1,0 +1,19 @@
+.btn-icon
+	display: inline-block
+	vertical-align: top
+	border-radius: 50%
+	width: 40px
+	height: 40px
+	color: inherit
+	background: none
+	text-decoration: none
+	transition: color 0.175s ease, background 0.175s ease
+	+active
+		color: inherit
+		background: rgba($black, 0.1)
+	&_square
+		border-radius: 0
+	&_gray
+		background: $lightGray
+		+active
+			background: $lightGrayActive

@@ -1,6 +1,6 @@
 .sidebar
 	position: relative
-	z-index: 1
+	z-index: 10
 	display: flex
 	flex-direction: column
 	background: $white
@@ -8,6 +8,9 @@
 	word-break: break-word
 	+md
 		box-shadow: none
+	&_cart
+		.sidebar__footer
+			padding: 0
 	&__header,
 	&__footer
 		flex: 0 0 auto

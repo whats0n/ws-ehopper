@@ -1,0 +1,159 @@
+.order-list
+	+clr
+.order-item
+	position: relative
+	overflow: hidden
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+	+nosel
+	+clr
+	transition: background 0.175s ease
+	&.is-open
+		.order-item
+			&__container
+				transform: translate3d(-60px,0,0)
+	&.is-active,
+	&[data-state="active"],
+	[data-state="active"]
+		background: $azure
+		+refund
+			background: lighten(#ec4a41, 35%)
+	&[data-animation="ripple"]
+		cursor: pointer
+		.ripple-circle
+			background: rgba($black, 0.05)
+		+active
+			background: $azureActive
+		&.is-active
+			+active
+				background: $azureActive
+			+refund
+				background: lighten(#ec4a41, 35%)
+	&_static
+		padding: 13px 0
+		.order-item
+			&__discount
+				color: $darkGray
+				opacity: 0.5
+			&__quantity,
+			&__price,
+			&__total,
+			&__discount,
+			&__info,
+			&__meta
+				padding: 3px 0
+	&_sub
+		em
+			color: lighten($darkGray, 50%)
+	&__container
+		position: relative
+		+gpu
+		transition: transform 0.185s ease-in-out
+		+touch
+			padding-right: 30px
+			margin-right: -60px
+	&__close
+		position: absolute
+		top: 5px
+		right: 0
+		color: $red
+		background: none
+		+lg
+			top: 4px
+		+touch
+			top: 0
+			bottom: 0
+			width: 60px
+			color: $white
+			background: $red
+		.icon-close
+			display: inline-block
+			vertical-align: middle
+			font-size: 18px
+		+ .order-item__content
+			padding-right: 50px
+	&__content
+		padding: 5px 20px
+		+clr
+		+touch
+			padding-right: 50px
+	&__row
+		float: left
+		width: 50%
+		+clr
+		font-size: 0
+	&__col
+		display: inline-block
+		vertical-align: top
+		padding: 0 0 0 20px
+		width: 50%
+		&_wide
+			width: 100%
+	&__total,
+	&__price,
+	&__discount
+		word-break: break-all
+	&__quantity,
+	&__price,
+	&__total,
+	&__discount,
+	&__info,
+	&__meta
+		padding: 12px 0
+	&__title,
+	&__quantity,
+	&__total
+		font-weight: 400
+	&__title,
+	&__col
+		font-size: 16px
+		+lg
+			font-size: 14px
+	&__meta
+		clear: both
+		+clr
+		&-content,
+		&-price
+			float: left
+			width: 50%
+		&-price 
+			text-align: right
+	&__meta,
+	&__price
+		opacity: 0.5
+	&__meta,
+	&__price,
+	&__discount
+		font-size: 14px
+		a 
+			display: inline-block
+			font-weight: 400
+			text-decoration: none
+	&__discount
+		color: $red
+	&__tag
+		display: inline-block
+		vertical-align: top
+		width: 40px
+		height: 40px
+		opacity: 0.3
+		background: url(../img/tag.svg) no-repeat center center
+		background-size: 20px
+	&__notes
+		display: block
+		+text-overflow
+	&__title
+		em
+			font-weight: 400
+			font-style: italic
+	&__discount-item
+		padding-bottom: 2px
+		opacity: 0.5
+		font-size: 14px
+		&:last-child
+			padding-bottom: 10px
+		span 
+			display: block
+			padding-left: 10px
+			+text-overflow
+	&__discount-icon
+		float: left

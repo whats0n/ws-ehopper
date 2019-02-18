@@ -1,0 +1,33 @@
+{% macro call(props) %}
+<!-- begin tabs -->
+<div class="tabs {{props.classList}}" data-tab="{{props.name}}">
+	{% if props.noHeader != true %}
+		<!-- begin tabs controls -->
+		<div class="tabs__controls">
+			<ul class="tabs__list">
+				{% for item in props.list %}
+					<li class="tabs__item {{item.btnClassList}}">
+						<a href="#" 
+							class="tabs__btn {{props.btnClassList}} {%- if loop.index0 === 0 %} is-active {%- endif -%}" 
+							data-tab-open="{{item.name}}" 
+							data-tab-collection="{{props.name}}" 
+							data-animation="ripple">{{item.text | safe}}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<!-- end tabs controls -->
+	{% endif %}
+	
+	<!-- begin tabs container -->
+	<div class="tabs__container">
+		{% for item in props.list %}
+			<div class="tabs__content {{item.contentClass}} {%- if loop.index0 === 0 %} is-open {%- endif -%}" data-tab-container="{{item.name}}" data-tab-collection="{{props.name}}" data-scrollbar="default">
+				{% include item.content %}
+			</div>
+		{% endfor %}
+	</div>
+	<!-- end tabs container -->
+</div>
+<!-- end tabs -->
+{% endmacro %}

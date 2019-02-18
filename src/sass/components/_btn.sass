@@ -21,6 +21,12 @@
 		color: $darkGray
 		background: darken($lightGray, 10%)
 		box-shadow: inset 2px 2px 6px rgba($black, 0.2)
+	&_lg
+		padding: 0 15px
+		min-width: 60px
+		height: 60px
+		font-size: 19px
+		line-height: 60px
 	&_primary
 		color: $white
 		background: $blue
@@ -29,3 +35,9 @@
 			background: darken($blue, 10%)
 	&_wide
 		width: 100%
+	&_green
+		color: $white
+		background: $green
+		+active
+			color: $white
+			background: $greenActive

@@ -85,7 +85,7 @@
 
 {% macro cart(props) %}
 <!-- begin sidebar -->
-<aside class="sidebar sidebar_left sidebar_adaptive-poynt sidebar_disabled" data-toggle-class-container="sidebar-header" data-dropdown-parent="sidebar">
+<aside class="sidebar sidebar_cart sidebar_disabled" data-toggle-class-container="sidebar-header" data-dropdown-parent="sidebar">
 	<div class="sidebar__body" data-order-scroll="order">
 		<div class="sidebar__content">
 			{% set orderList = [
@@ -155,12 +155,6 @@
 					</li>
 				{% endfor %}
 			</ul>
-			<div class="order-empty is-hidden" data-order-empty="order">
-				<div class="order-empty__center">
-					<h5>Order is empty</h5>
-					<p>Add items from catalog</p>
-				</div>
-			</div>
 		</div>
 	</div>
 	<div class="sidebar__footer">
@@ -211,21 +205,10 @@
 			<div class="toolbar__container">
 				<div class="toolbar__row">
 					<div class="toolbar__col toolbar__col_sm">
-						{# {{mixins.button({
-							tagName: 'a',
-							classList: 'btn btn_green btn_lg btn_block toolbar__button',
-							attrs: 'data-animation="ripple" href="payments.html"',
-							content: 'All Payments'
-						})}} #}
+						<a href="#" class="btn btn_green btn_lg btn_wide toolbar__button" data-animation="ripple">All Payments</a>
 					</div>
 					<div class="toolbar__col toolbar__col_lg">
-						{# {{mixins.button({
-							tagName: 'a',
-							classList: 'btn btn_green btn_lg btn_block toolbar__button',
-							attrs: 'data-animation="ripple" href="payment-cash.html" id="cart-cash-button"',
-							content: 'Cash'
-						})}} #}
-						{#$1299.00#}
+						<a href="#" class="btn btn_green btn_lg btn_wide toolbar__button" data-animation="ripple">Cash</a>
 					</div>
 				</div>
 			</div>

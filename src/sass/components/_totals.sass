@@ -1,0 +1,74 @@
+.totals
+	padding: 10px 0
+	&_gray
+		background: #f2f2f2
+		.totals-list
+			&_scroll
+				border-top-color: #eee
+			&__item
+				color: #7d7d7d
+	&_static
+		border-top: 2px solid rgba($black, 0.1)
+		background: none
+		.totals-list 
+			&_scroll
+				border-top-color: darken($alabaster, 5%)
+				max-height: 150px
+			&__item
+				&:not(:first-child)
+					&:before
+						border-top-color: darken($alabaster, 15%)
+	&__container
+		padding-top: 5px
+	&__label
+		clear: both
+		padding: 0 20px
+		color: $blue
+		font-size: 13px
+		font-weight: 400
+		font-style: italic
+
+.totals-list
+	font-size: 14px
+	line-height: 16px
+	+clr
+	&_scroll
+		overflow: auto
+		border-top: 1px solid darken(#d2edf6, 5%)
+		max-height: 92px
+		+lg
+			max-height: 81px
+	&__item
+		position: relative
+		clear: both
+		color: $darkGray
+		+clr
+		&:not(:first-child)
+			padding-top: 1px
+			&:before
+				content: ''
+				position: absolute
+				right: 0
+				top: 0
+				border-top: 1px dashed darken(#d2edf6, 15%)
+				width: 100%
+				opacity: 0.3
+		a 
+			color: $blue
+		&_total
+			padding-top: 5px !important
+			font-size: 20px
+			font-weight: 500
+			.totals-list
+				&__label
+					width: 30%
+				&__value
+					width: 70%
+	&__label,
+	&__value
+		float: left
+		padding: 3px 20px
+		width: 50%
+		+text-overflow
+	&__value
+		text-align: right

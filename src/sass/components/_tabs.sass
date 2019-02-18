@@ -1,0 +1,140 @@
+.tabs
+	position: relative
+	padding-top: 60px
+	height: 100%
+	color: $darkGray
+	background: $alabaster
+	+hsm
+		padding-top: 50px
+	&_simple
+		padding-top: 20px
+		+hsm
+			padding-top: 20px
+		.tabs__content 
+			padding: 0
+	&_lg
+		.tabs__btn
+			font-size: 16px
+	&_box
+		.tabs__item
+			border: none !important
+		.tabs__btn
+			position: relative
+			background: none
+			text-transform: uppercase
+			&.is-active
+				background: #fcfcfc
+				&:before
+					border-width: 1px 1px 0 1px
+			&:before
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				border-width: 0 0 1px 0
+				border-style: solid
+				border-color: #eee
+		.tabs__container
+			border: 1px solid #eee
+			border-top: none
+			background: #fcfcfc
+		.tabs__content
+			padding: 40px 40px 15px
+	&_static
+		.tabs
+			&__controls,
+			&__list
+				display: block
+				font-size: 0
+			&__item 
+				display: inline-block
+				vertical-align: top
+			&__btn 
+				padding-left: 25px
+				padding-right: 25px
+				min-width: 150px
+	&__controls
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		display: table
+		table-layout: fixed
+		width: 100%
+	&__list
+		display: table-row
+	&__item
+		display: table-cell
+		vertical-align: top
+		&:not(:last-child)
+			border-right: 2px solid rgba($black, 0.1)
+		&.is-hidden
+			visibility: hidden
+		&.is-error
+			.tabs__btn
+				color: $red
+				background: rgba($red, 0.3)
+	&__btn
+		position: relative
+		display: block
+		padding: 20px 10px
+		color: inherit
+		background: $lightGray
+		font-size: 14px
+		line-height: 20px
+		text-align: center
+		text-decoration: none
+		+nosel
+		&.is-active
+			background: $alabaster
+		&.is-disabled
+			color: rgba($black, 0.3)
+			pointer-events: none
+		+hsm
+			padding: 15px 10px
+	&__container
+		height: 100%
+		background: $alabaster
+	&__content
+		display: none
+		overflow: auto
+		height: 100%
+		&.is-open
+			display: block
+	&__keyboard,
+	&__notes,
+	&__info
+		margin: 0 auto
+		width: 100%
+		text-align: left
+	&__keyboard,
+	&__notes
+		max-width: 460px
+	&__info
+		height: 100%
+	&__item_alt
+		border-right: none
+		display: table-cell
+		vertical-align: top
+	&__btn_alt
+		text-transform: uppercase
+		border-color: rgba(0, 0, 0, 0.1)
+		border-width: 0 0 1px 0
+		border-style: solid
+		&.is-active
+			border-width: 2px 1px 0 1px
+			border-top-color: $mediumGray
+	&__meta
+		padding: 0 0 20px
+		font-size: 16px
+		font-weight: 400
+
+.tabs-box
+	padding: 20px 0 0
+	margin: 0 auto
+	max-width: 800px
+	height: 100%
+	&_wide
+		max-width: none

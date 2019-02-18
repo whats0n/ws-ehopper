@@ -1,3 +1,13 @@
 {% macro textarea(props) %}
   <textarea class="textarea {{props.textareaClassList}}" placeholder="{{props.placeholder}}"></textarea>
 {% endmacro %}
+
+{% macro radio(props) %}
+<label class="radio">
+	<input type="radio" name="{{props.name}}" {{props.inputAttrs | safe}}>
+	<span class="radio__icon"></span>
+	{% if props.text %}
+		<span class="radio__text">{{props.text}}</span>
+	{% endif %}
+</label>
+{% endmacro	 %}
