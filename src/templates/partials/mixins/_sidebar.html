@@ -82,3 +82,200 @@
 </div>
 <!-- end sidebar -->
 {% endmacro %}
+
+{% macro cart(props) %}
+<!-- begin sidebar -->
+<aside class="sidebar sidebar_left sidebar_adaptive-poynt sidebar_disabled" data-toggle-class-container="sidebar-header" data-dropdown-parent="sidebar">
+	<div class="sidebar__body" data-order-scroll="order">
+		<div class="sidebar__content">
+			{% set orderList = [
+				{
+					title: 'T-Shirt with Print 23',
+					meta: 'Long Sleeves, XL size, Black color',
+					quantity: '2',
+					price: '$20.00',
+					total: '$35.00',
+					discount: '($5.00)',
+					state: 'default'
+				},
+				{
+					title: 'Honey',
+					meta: 'Long Sleeves, XL size, Black color <div class="order-item__notes"><a href="#">Note: </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, animi?</div>',
+					quantity: '1',
+					price: '$8.00',
+					total: '$8.00',
+					state: 'default'
+				}
+			] %}
+			<ul class="order-list" data-order-visible="order" data-order-list="order">
+				{% for item in orderList %}
+					<li class="order-item" 
+						data-order-added="item" 
+						data-animation="ripple" 
+						data-swipe="is-open"
+						data-swipe-threshold="50">
+						<div class="order-item__container">
+							<button class="order-item__close" 
+								data-fullinfo-close="fullinfo" 
+								data-toggle-class-target="sidebar-header" 
+								data-toggle-class-remove="is-disabled"
+								data-order-delete-item="delete">
+								<i class="icon icon-close"></i>
+							</button>
+							<div class="order-item__content"
+								data-fullinfo-open="fullinfo"
+								data-toggle-class-target="sidebar-header"
+								data-toggle-class-add="is-disabled">
+								<div class="order-item__row">
+									<div class="order-item__info">
+										<div class="order-item__title">{{item.title | safe}}</div>
+									</div>
+									<div class="order-item__meta">{{item.meta | safe}}</div>
+								</div>
+								<div class="order-item__row">
+									<div class="order-item__col text-left">
+										<div class="order-item__quantity">{{item.quantity | safe}}&times;</div>
+									</div>
+									<div class="order-item__col text-right">
+										<div class="order-item__total">{{item.total | safe}}</div>
+									</div>
+									<div class="order-item__col text-left">
+										<div class="order-item__price">{{item.price | safe}}</div>
+									</div>
+									<div class="order-item__col text-right">
+										{% if item.discount %}
+											<div class="order-item__discount">{{item.discount | safe}}</div>
+										{% else %}
+											<div class="order-item__tag"></div>
+										{% endif %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+			<div class="order-empty is-hidden" data-order-empty="order">
+				<div class="order-empty__center">
+					<h5>Order is empty</h5>
+					<p>Add items from catalog</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar__footer">
+		<div class="totals sidebar__totals" data-order-visible="order">
+			{% set totalsListMain = [
+				{
+					label: 'Subtotal',
+					value: '48.00'
+				},
+				{
+					label: 'Discount',
+					value: '($5.00)',
+					nodollar: true
+				}
+			] %}
+			{% set totalsListScroll = [
+				{
+					label: 'TAX',
+					value: '4.30'
+				}
+			] %}
+			<div class="totals__container">
+				<ul class="totals-list totals-list_main">
+					{% for item in totalsListMain %}
+						<li class="totals-list__item">
+							<div class="totals-list__label">{{item.label | safe}}</div>
+							<div class="totals-list__value">{% if not item.nodollar %}${% endif %}{{item.value | safe}}</div>
+						</li>
+					{% endfor %}
+				</ul>
+				<ul class="totals-list totals-list_scroll" data-scrollbar="default">
+					{% for item in totalsListScroll %}
+						<li class="totals-list__item">
+							<div class="totals-list__label">{{item.label | safe}}</div>
+							<div class="totals-list__value">{% if not item.nodollar %}${% endif %}{{item.value | safe}}</div>
+						</li>
+					{% endfor %}
+				</ul>
+				<ul class="totals-list totals-list_scroll">
+					<li class="totals-list__item totals-list__item_total">
+						<div class="totals-list__label">Total</div>
+						<div class="totals-list__value">$47.30</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="toolbar sidebar__toolbar">
+			<div class="toolbar__container">
+				<div class="toolbar__row">
+					<div class="toolbar__col toolbar__col_sm">
+						{# {{mixins.button({
+							tagName: 'a',
+							classList: 'btn btn_green btn_lg btn_block toolbar__button',
+							attrs: 'data-animation="ripple" href="payments.html"',
+							content: 'All Payments'
+						})}} #}
+					</div>
+					<div class="toolbar__col toolbar__col_lg">
+						{# {{mixins.button({
+							tagName: 'a',
+							classList: 'btn btn_green btn_lg btn_block toolbar__button',
+							attrs: 'data-animation="ripple" href="payment-cash.html" id="cart-cash-button"',
+							content: 'Cash'
+						})}} #}
+						{#$1299.00#}
+					</div>
+				</div>
+			</div>
+		</div>
+		{# {{horizontalMenu.call({
+			classList: 'sidebar__menu',
+			items: [
+				{
+					text: 'Save',
+					href: 'order-save.html'
+				},
+				{
+					text: 'Notes',
+					href: 'order-note.html'
+				},
+				{
+					text: 'Terminal',
+					href: 'terminal-cash.html'
+				},
+				{
+					text: 'Drawer',
+					href: '#',
+					linkClassList: 'is-disabled'
+				},
+				{
+					text: 'Discount',
+					href: '#'
+				},
+				{
+					text: 'More <i class="icon icon-more-v"></i>',
+					attrs: 'data-dropdown-parent-name="sidebar" id="more-menu-btn"',
+					href: '#',
+					dropdown: {
+						upper: 'sidebar',
+						name: 'more',
+						classList: 'dropdown-menu_up dropdown-menu_no-scroll',
+						attrs: 'id="more-menu-dropdown"',
+						links: true,
+						list: [ 
+							{ text: '<a href="#">Tax exempt</a>' }, 
+							{ text: '<a href="#">Revert tax</a>' }, 
+							{ text: '<a href="#">Drawer</a>' }, 
+							{ text: '<a href="#">Reprint</a>' }, 
+							{ text: '<a href="#">Refund</a>' }
+						]
+					}
+				}
+			]
+		})}} #}
+	</div>
+</aside>
+<!-- end sidebar -->
+{% endmacro %}

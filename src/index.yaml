@@ -3,3 +3,4 @@ ProjectTitle: ws-ehopper
 PageList:
 - file: page.html
 - file: draggable.html
+- file: cart.html
