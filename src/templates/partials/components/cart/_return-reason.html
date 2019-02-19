@@ -6,9 +6,9 @@
 				<div class="form__section">
 					<ul class="form__list">
 						{% for item in [
-							{ text: 'Customer satisfaction' },
-							{ text: 'MetroPromise' },
-							{ text: 'Damaged' }
+							{ text: 'Customer satisfaction', name: 'return-reason' },
+							{ text: 'MetroPromise', name: 'return-reason' },
+							{ text: 'Damaged', name: 'return-reason' }
 						] %}
 							<li class="form__list-item">
 								{{mixins.radio(item)}}
