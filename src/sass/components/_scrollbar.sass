@@ -1,0 +1,28 @@
+[data-scrollbar="rounded"],
+[data-scrollbar="default"]
+  &::-webkit-scrollbar
+    display: initial !important
+  &::-webkit-scrollbar-thumb
+    background: $blue
+    +hover
+      background: darken($blue, 10%)
+
+[data-scrollbar="rounded"]
+  &::-webkit-scrollbar
+    &:vertical
+      width: 15px
+      background: linear-gradient(to right, transparent 7px, #b9dff6 7px, #b9dff6 8px, transparent 8px)
+    &:horizontal
+      height: 15px
+      background: linear-gradient(to bottom, transparent 7px, #b9dff6 7px, #b9dff6 8px, transparent 8px)
+  &::-webkit-scrollbar-thumb
+    border-radius: 6px
+
+[data-scrollbar="default"]
+  &::-webkit-scrollbar
+    &:vertical
+      width: 15px
+      background: linear-gradient(to right, transparent 7px, #b9dff6 7px, #b9dff6 8px, transparent 8px)
+    &:horizontal
+      height: 15px
+      background: linear-gradient(to bottom, transparent 7px, #b9dff6 7px, #b9dff6 8px, transparent 8px)
