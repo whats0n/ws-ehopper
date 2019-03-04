@@ -1,7 +1,7 @@
 .discount-card
   display: block
   overflow: hidden
-  padding: 20px
+  // padding: 20px
   color: #333
   background: #eee
   box-shadow: 0 0 1px rgba($black,.2), 0 2px 4px rgba($black,.1)
@@ -14,3 +14,19 @@
   transition: box-shadow .15s ease-in-out
   &.is-highlight
     background: khaki
+  &__title
+    padding: 20px
+    text-align: center
+  &__footer
+    padding: 5px 20px
+    background: rgba($white,0.75)
+    +clr
+  &__price
+    float: right
+    text-align: right
+  &__amount
+    float: left
+    text-align: left
+  &__price,
+  &__amount
+    width: 50%

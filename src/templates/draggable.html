@@ -45,7 +45,13 @@ headerTitle: 'Discount approval request'
 						{ value: '40', label: 'Coupon 4' }
 					] %}
 						<div class="grid__col">
-							<div class="discount-card js-discount-coupon" data-discount-label="{{item.label}}" data-discount-value="{{item.value}}">{{item.label}}: ${{item.value}}</div>
+							<div class="discount-card js-discount-coupon" data-discount-label="{{item.label}}" data-discount-value="{{item.value}}">
+								<div class="discount-card__title">{{item.label}}</div>
+								<div class="discount-card__footer">
+									<div class="discount-card__amount">{{loop.index}}</div>
+									<div class="discount-card__price">${{item.value}}</div>
+								</div>
+							</div>
 						</div>
 					{% endfor %}
 				</div>

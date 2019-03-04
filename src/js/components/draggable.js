@@ -22,11 +22,14 @@ const getCoord = e => {
 
 const addDiscount = (item, coupon) => {
 	item.append(`
-		<div class="sidebar-item__discount">
+		<div class="sidebar-item__discount js-discount-box">
 			<div class="sidebar-item__row">
 				<div class="sidebar-item__col">${coupon.data('discount-label')}</div>
 				<div class="sidebar-item__col text-right">($${coupon.data('discount-value')})</div>
 			</div>
+			<button class="sidebar-item__delete js-discount-delete">
+				<span class="sidebar-item__delete-icon"></span>
+			</button>
 		</div>
 	`)
 }
@@ -99,4 +102,11 @@ coupons.each((i, coupon) => {
 		handleMove(e)
 		body.append(clone)
 	})
+})
+
+items.on('click', '.js-discount-delete', e => {
+	e.preventDefault()
+	$(e.currentTarget)
+		.closest('.js-discount-box')
+		.remove()
 })

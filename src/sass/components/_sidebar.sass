@@ -95,6 +95,9 @@
 			display: none
 	&__sub
 		color: #ababab
+	&__discount
+		position: relative
+		padding-right: 26px
 	&__discount-icon
 		position: absolute
 		top: 50%
@@ -102,3 +105,33 @@
 		margin: -8px 0 0 3px
 		width: 16px
 		fill: currentColor
+	&__delete
+		position: absolute
+		top: 0
+		right: -5px
+		width: 26px
+		height: 26px
+		background: none
+		&-icon
+			position: absolute
+			top: 5px
+			left: 5px
+			right: 5px
+			bottom: 5px
+			transform: rotate(-45deg)
+			&:before,
+			&:after
+				content: ''
+				position: absolute
+			&:before
+				top: 50%
+				left: 0
+				right: 0
+				margin-top: -1px
+				border-top: 2px solid $red
+			&:after
+				top: 0
+				left: 50%
+				bottom: 0
+				margin-left: -1px
+				border-left: 2px solid $red
