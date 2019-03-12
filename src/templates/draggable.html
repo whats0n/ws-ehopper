@@ -15,13 +15,50 @@ headerTitle: 'Discount approval request'
 				description: 'SN: 0722222222224426',
 				qty: '1x',
 				price: '$100.0',
-				totalPrice: '$100.00'
+				totalPrice: '$100.00',
+				category: 'technique'
 			},
 			{
-				title: 'Service Payment',
+				title: 'MacBook Pro',
 				qty: '1x',
-				price: '$128.00',
-				totalPrice: '$128.00'
+				price: '$2000.00',
+				totalPrice: '$2000.00',
+				category: 'technique'
+			},
+			{
+				title: 'Pizza Karbonara',
+				qty: '1x',
+				price: '$39.00',
+				totalPrice: '$39.00',
+				category: 'fast-food'
+			},
+			{
+				title: 'Burger',
+				qty: '1x',
+				price: '$37.00',
+				totalPrice: '$37.00',
+				category: 'fast-food'
+			},
+			{
+				title: 'Pasta',
+				qty: '1x',
+				price: '$22.00',
+				totalPrice: '$22.00',
+				category: 'food'
+			},
+			{
+				title: 'iPhone',
+				qty: '1x',
+				price: '$1000.00',
+				totalPrice: '$1000.00',
+				category: 'technique'
+			},
+			{
+				title: 'Samsung',
+				qty: '1x',
+				price: '$800.00',
+				totalPrice: '$800.00',
+				category: 'technique'
 			}
 		],
 		footer: {
@@ -39,16 +76,23 @@ headerTitle: 'Discount approval request'
 			<div class="grid">
 				<div class="grid__row">
 					{% for item in [
-						{ value: '10', label: 'Coupon 1' },
-						{ value: '20', label: 'Coupon 2' },
-						{ value: '30', label: 'Coupon 3' },
-						{ value: '40', label: 'Coupon 4' }
+						{ value: '13', label: 'Fast Food', category: 'fast-food', qty: '2' },
+						{ value: '21', label: 'Milk', category: 'milk', qty: '2' },
+						{ value: '51', label: 'Technique', category: 'technique', qty: '2' },
+						{ value: '25', label: 'Furniture', category: 'furniture', qty: '2' },
+						{ value: '13', label: 'Food', category: 'food', qty: '2' }
 					] %}
 						<div class="grid__col">
-							<div class="discount-card js-discount-coupon" data-discount-label="{{item.label}}" data-discount-value="{{item.value}}">
+							<div
+								class="discount-card js-discount-coupon"
+								data-discount-label="{{item.label}}"
+								data-discount-value="{{item.value}}"
+								data-discount-category="{{item.category}}"
+								data-discount-qty="{{item.qty}}"
+							>
 								<div class="discount-card__title">{{item.label}}</div>
 								<div class="discount-card__footer">
-									<div class="discount-card__amount">qty: {{loop.index}}</div>
+									<div class="discount-card__amount">qty: {{item.qty}}</div>
 									<div class="discount-card__price">amount: ${{item.value}}</div>
 								</div>
 							</div>

@@ -14,12 +14,15 @@
   transition: box-shadow .15s ease-in-out
   &.is-highlight
     background: khaki
+  &.is-disabled
+    opacity: 0.3
   &__title
     padding: 20px
     text-align: center
   &__footer
     padding: 5px 20px
     background: rgba($white,0.75)
+    font-size: 14px
     +clr
   &__price
     float: right

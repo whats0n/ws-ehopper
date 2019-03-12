@@ -1,5 +1,6 @@
 const HIDDEN = 'is-hidden'
 const HIGHLIGHT = 'is-highlight'
+const DISABLED = 'is-disabled'
 
 const coupons = $('.js-discount-coupon')
 const items = $('.js-discount-item')
@@ -23,15 +24,14 @@ const getCoord = e => {
 const addDiscount = (item, coupon) => {
 	item.append(`
 		<div class="sidebar-item__discount js-discount-box">
-			<div class="sidebar-item__row">
-				<div class="sidebar-item__col">${coupon.data('discount-label')}</div>
-				<div class="sidebar-item__col text-right">($${coupon.data('discount-value')})</div>
-			</div>
+			<div class="sidebar-item__discount-label">${coupon.data('discount-label')}</div>
+			<div class="sidebar-item__discount-value">($${coupon.data('discount-value')})</div>
 			<button class="sidebar-item__delete js-discount-delete">
 				<span class="sidebar-item__delete-icon"></span>
 			</button>
 		</div>
 	`)
+	item.attr('data-discount-status', 'true')
 }
 
 const isActiveItem = (item, x, y) => {
@@ -47,6 +47,10 @@ const isActiveItem = (item, x, y) => {
 
 coupons.each((i, coupon) => {
 	coupon = $(coupon)
+	const category = coupon.data('discount-category')
+	const otherCoupons = coupons.not(coupon)
+	const currentItems = items.filter(`[data-discount-category="${category}"]`)
+	const wrongItems = items.not(`[data-discount-category="${category}"]`)
 	let clone = null
 	let startX = 0
 	let startY = 0
@@ -64,33 +68,48 @@ coupons.each((i, coupon) => {
 			'left': `${x - startX}px`,
 			'width': `${coupon.outerWidth()}px`
 		})
-		items.each((i, item) => {
-			item = $(item)
-			if (isActiveItem(item, x, y)) {
-				item.addClass(HIGHLIGHT)
-			} else {
-				item.removeClass(HIGHLIGHT)
-			}
-		})
+		const isActiveItems = currentItems.filter(`[data-discount-status="true"]`)
+		currentItems
+			.not(isActiveItems)
+			.each((i, item) => {
+				item = $(item)
+				if (isActiveItem(item, x, y)) {
+					item.addClass(HIGHLIGHT)
+				} else {
+					item.removeClass(HIGHLIGHT)
+				}
+			})
 	}
 	const handleStop = e => {
 		doc.off(events.move, handleMove)
 		doc.off(events.stop, handleStop)
-		items.each((i, item) => {
-			item = $(item)
-			if (isActiveItem(item, x, y)) {
-				addDiscount(item, coupon)
-				item.removeClass(HIGHLIGHT)
-			} else {
-				item.removeClass(HIGHLIGHT)
-			}
-		})
+		const isActiveItems = currentItems.filter(`[data-discount-status="true"]`)
+		otherCoupons
+			.add(wrongItems)
+			.add(isActiveItems)
+			.removeClass(DISABLED)
+		currentItems
+			.not(isActiveItems)
+			.each((i, item) => {
+				item = $(item)
+				if (isActiveItem(item, x, y)) {
+					addDiscount(item, coupon)
+					item.removeClass(HIGHLIGHT)
+				} else {
+					item.removeClass(HIGHLIGHT)
+				}
+			})
 		clone.remove()
 	}
 
 	coupon.on(events.start, e => {
 		if (e.type.includes('mouse') && e.button !== 0) return
 		e.preventDefault()
+		const isActiveItems = currentItems.filter(`[data-discount-status="true"]`)
+		otherCoupons
+			.add(wrongItems)
+			.add(isActiveItems)
+			.addClass(DISABLED)
 		startX = getCoord(e).pageX - coupon.offset().left
 		startY = getCoord(e).pageY - coupon.offset().top
 		y = getCoord(e).pageY
@@ -106,6 +125,9 @@ coupons.each((i, coupon) => {
 
 items.on('click', '.js-discount-delete', e => {
 	e.preventDefault()
+	$(e.currentTarget)
+		.closest('.js-discount-item')
+		.attr('data-discount-status', 'false')
 	$(e.currentTarget)
 		.closest('.js-discount-box')
 		.remove()

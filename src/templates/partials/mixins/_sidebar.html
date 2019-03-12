@@ -15,7 +15,13 @@
 				{% set discountValue = 'js-discount-value' %}
 			{% endif %}
 			{% for item in props.items %}
-				<div class="sidebar-item sidebar__item {{discountProduct}}">
+				<div
+					class="sidebar-item sidebar__item {{discountProduct}}"
+					{% if props.discount %}
+						data-discount-category="{{item.category}}"
+						data-discount-status="false"
+					{% endif %}
+				>
 					<div class="sidebar-item__row">
 						<div class="sidebar-item__col">
 							<div class="sidebar-item__value">{{item.title | safe}}</div>
