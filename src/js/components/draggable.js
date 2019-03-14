@@ -49,8 +49,8 @@ coupons.each((i, coupon) => {
 	coupon = $(coupon)
 	const category = coupon.data('discount-category')
 	const otherCoupons = coupons.not(coupon)
-	const currentItems = items.filter(`[data-discount-category="${category}"]`)
-	const wrongItems = items.not(`[data-discount-category="${category}"]`)
+	const currentItems = items.filter((i, item) => $(item).data('discount-category').split(' ').includes(category))
+	const wrongItems = items.not(currentItems)
 	let clone = null
 	let startX = 0
 	let startY = 0
@@ -68,9 +68,7 @@ coupons.each((i, coupon) => {
 			'left': `${x - startX}px`,
 			'width': `${coupon.outerWidth()}px`
 		})
-		const isActiveItems = currentItems.filter(`[data-discount-status="true"]`)
 		currentItems
-			.not(isActiveItems)
 			.each((i, item) => {
 				item = $(item)
 				if (isActiveItem(item, x, y)) {
@@ -83,13 +81,10 @@ coupons.each((i, coupon) => {
 	const handleStop = e => {
 		doc.off(events.move, handleMove)
 		doc.off(events.stop, handleStop)
-		const isActiveItems = currentItems.filter(`[data-discount-status="true"]`)
 		otherCoupons
 			.add(wrongItems)
-			.add(isActiveItems)
 			.removeClass(DISABLED)
 		currentItems
-			.not(isActiveItems)
 			.each((i, item) => {
 				item = $(item)
 				if (isActiveItem(item, x, y)) {
@@ -105,10 +100,8 @@ coupons.each((i, coupon) => {
 	coupon.on(events.start, e => {
 		if (e.type.includes('mouse') && e.button !== 0) return
 		e.preventDefault()
-		const isActiveItems = currentItems.filter(`[data-discount-status="true"]`)
 		otherCoupons
 			.add(wrongItems)
-			.add(isActiveItems)
 			.addClass(DISABLED)
 		startX = getCoord(e).pageX - coupon.offset().left
 		startY = getCoord(e).pageY - coupon.offset().top
@@ -125,9 +118,6 @@ coupons.each((i, coupon) => {
 
 items.on('click', '.js-discount-delete', e => {
 	e.preventDefault()
-	$(e.currentTarget)
-		.closest('.js-discount-item')
-		.attr('data-discount-status', 'false')
 	$(e.currentTarget)
 		.closest('.js-discount-box')
 		.remove()
