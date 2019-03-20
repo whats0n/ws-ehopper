@@ -1,3 +1,4 @@
+{% import "partials/mixins/_horizontal-menu.html" as horizontalMenu %}
 {% macro static(props) %}
 <!-- begin sidebar -->
 <div class="sidebar">
@@ -219,51 +220,18 @@
 				</div>
 			</div>
 		</div>
-		{# {{horizontalMenu.call({
-			classList: 'sidebar__menu',
-			items: [
-				{
-					text: 'Save',
-					href: 'order-save.html'
-				},
-				{
-					text: 'Notes',
-					href: 'order-note.html'
-				},
-				{
-					text: 'Terminal',
-					href: 'terminal-cash.html'
-				},
-				{
-					text: 'Drawer',
-					href: '#',
-					linkClassList: 'is-disabled'
-				},
-				{
-					text: 'Discount',
-					href: '#'
-				},
-				{
-					text: 'More <i class="icon icon-more-v"></i>',
-					attrs: 'data-dropdown-parent-name="sidebar" id="more-menu-btn"',
-					href: '#',
-					dropdown: {
-						upper: 'sidebar',
-						name: 'more',
-						classList: 'dropdown-menu_up dropdown-menu_no-scroll',
-						attrs: 'id="more-menu-dropdown"',
-						links: true,
-						list: [ 
-							{ text: '<a href="#">Tax exempt</a>' }, 
-							{ text: '<a href="#">Revert tax</a>' }, 
-							{ text: '<a href="#">Drawer</a>' }, 
-							{ text: '<a href="#">Reprint</a>' }, 
-							{ text: '<a href="#">Refund</a>' }
-						]
-					}
-				}
-			]
-		})}} #}
+		<div class="sidebar__menu">
+			{{horizontalMenu.call({
+				items: [
+					{ text: 'Notes' },
+					{ text: 'Discount' },
+					{ text: 'Coupons <span>4</span>' },
+					{ text: 'Drawer' },
+					{ text: 'Remove Tax' },
+					{ text: 'Include Tax' }
+				]
+			})}}
+		</div>
 	</div>
 </aside>
 <!-- end sidebar -->
